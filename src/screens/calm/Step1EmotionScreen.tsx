@@ -40,25 +40,25 @@ const NUANCES_BY_EMOTION: Record<string, string[]> = {
 export function Step1EmotionScreen() {
   const navigation = useNavigation<Nav>();
   const { updateDraft } = useCalm();
-  const [selected, setSelected] = useState(\'\');
-  const [nuance, setNuance] = useState(\'\');
+  const [selected, setSelected] = useState('');
+  const [nuance, setNuance] = useState('');
 
   const nuances = selected ? (NUANCES_BY_EMOTION[selected] ?? []) : [];
   const emotionName = nuance || selected;
 
   const handleSelectEmotion = (name: string) => {
     if (selected === name) {
-      setSelected(\'\');
+      setSelected('');
     } else {
       setSelected(name);
-      setNuance(\'\');
+      setNuance('');
     }
   };
 
   const handleNext = () => {
     if (!emotionName) return;
     updateDraft({ emotion_name: emotionName });
-    navigation.navigate(\'Step23\');
+    navigation.navigate('Step23');
   };
 
   return (
@@ -104,7 +104,7 @@ export function Step1EmotionScreen() {
                 <TouchableOpacity
                   key={n}
                   style={[styles.nuanceChip, nuance === n && styles.nuanceChipSelected]}
-                  onPress={() => setNuance(nuance === n ? \'\' : n)}
+                  onPress={() => setNuance(nuance === n ? '' : n)}
                   activeOpacity={0.7}
                 >
                   <Text style={[styles.nuanceLabel, nuance === n && styles.nuanceLabelSelected]}>{n}</Text>
@@ -131,7 +131,7 @@ export function Step1EmotionScreen() {
 
 const styles = StyleSheet.create({
   scroll: { padding: spacing.md, paddingBottom: spacing.xxl },
-  stepBadgeRow: { flexDirection: \'row\', marginBottom: spacing.sm },
+  stepBadgeRow: { flexDirection: 'row', marginBottom: spacing.sm },
   stepBadge: {
     backgroundColor: colors.primaryContainer,
     borderRadius: radius.full,
@@ -140,46 +140,46 @@ const styles = StyleSheet.create({
   },
   stepBadgeText: {
     fontSize: 10,
-    fontWeight: \'700\' as const,
-    fontFamily: \'Manrope_700Bold\',
+    fontWeight: '700' as const,
+    fontFamily: 'Manrope_700Bold',
     color: colors.onPrimaryContainer,
-    textTransform: \'uppercase\',
+    textTransform: 'uppercase',
     letterSpacing: 1.2,
   },
   heading: {
     fontSize: 36,
-    fontWeight: \'800\' as const,
-    fontFamily: \'Manrope_800ExtraBold\',
+    fontWeight: '800' as const,
+    fontFamily: 'Manrope_800ExtraBold',
     color: colors.onBackground,
     letterSpacing: -0.5,
     marginBottom: spacing.xs,
   },
   question: {
     ...typography.bodyLarge,
-    fontFamily: \'Manrope_400Regular\',
+    fontFamily: 'Manrope_400Regular',
     color: colors.onSurfaceVariant,
     marginBottom: spacing.lg,
     lineHeight: 24,
   },
   grid: {
-    flexDirection: \'row\',
-    flexWrap: \'wrap\',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.sm,
-    justifyContent: \'space-between\',
+    justifyContent: 'space-between',
   },
   emotionCard: {
-    width: \'47%\',
-    alignItems: \'center\',
+    width: '47%',
+    alignItems: 'center',
     gap: spacing.sm,
     paddingVertical: spacing.lg,
     paddingHorizontal: spacing.sm,
-    backgroundColor: \'rgba(255,255,255,0.5)\',
+    backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: radius.md,
     borderWidth: 1,
-    borderColor: \'rgba(255,255,255,0.4)\',
+    borderColor: 'rgba(255,255,255,0.4)',
   },
   emotionCardSelected: {
-    backgroundColor: \'rgba(144,205,253,0.35)\',
+    backgroundColor: 'rgba(144,205,253,0.35)',
     borderColor: colors.primary,
     borderWidth: 2,
   },
@@ -188,33 +188,33 @@ const styles = StyleSheet.create({
     height: 56,
     borderRadius: radius.full,
     backgroundColor: colors.surfaceContainerLow,
-    justifyContent: \'center\',
-    alignItems: \'center\',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  iconCircleSelected: { backgroundColor: \'rgba(255,255,255,0.8)\' },
+  iconCircleSelected: { backgroundColor: 'rgba(255,255,255,0.8)' },
   emotionLabel: {
     ...typography.labelLarge,
-    fontFamily: \'Manrope_600SemiBold\',
+    fontFamily: 'Manrope_600SemiBold',
     color: colors.onSurfaceVariant,
-    textAlign: \'center\',
+    textAlign: 'center',
   },
   emotionLabelSelected: { color: colors.onPrimaryContainer },
   nuancesSection: { marginTop: spacing.xl },
   nuancesTitle: {
     fontSize: 10,
-    fontWeight: \'700\' as const,
-    fontFamily: \'Manrope_700Bold\',
+    fontWeight: '700' as const,
+    fontFamily: 'Manrope_700Bold',
     color: colors.onSurfaceVariant,
-    textTransform: \'uppercase\',
+    textTransform: 'uppercase',
     letterSpacing: 1.5,
-    textAlign: \'center\',
+    textAlign: 'center',
     marginBottom: spacing.md,
   },
   nuanceChips: {
-    flexDirection: \'row\',
-    flexWrap: \'wrap\',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.sm,
-    justifyContent: \'center\',
+    justifyContent: 'center',
   },
   nuanceChip: {
     paddingVertical: spacing.sm,
@@ -227,20 +227,20 @@ const styles = StyleSheet.create({
   nuanceChipSelected: { backgroundColor: colors.primaryContainer, borderColor: colors.primaryContainer },
   nuanceLabel: {
     ...typography.labelLarge,
-    fontFamily: \'Manrope_500Medium\',
+    fontFamily: 'Manrope_500Medium',
     color: colors.onSurfaceVariant,
   },
-  nuanceLabelSelected: { fontFamily: \'Manrope_700Bold\', color: colors.onPrimaryContainer },
+  nuanceLabelSelected: { fontFamily: 'Manrope_700Bold', color: colors.onPrimaryContainer },
   footer: {
     padding: spacing.md,
-    backgroundColor: \'rgba(255,255,255,0.6)\',
+    backgroundColor: 'rgba(255,255,255,0.6)',
     borderTopWidth: 1,
-    borderTopColor: \'rgba(255,255,255,0.4)\',
+    borderTopColor: 'rgba(255,255,255,0.4)',
   },
   nextBtn: {
-    flexDirection: \'row\',
-    alignItems: \'center\',
-    justifyContent: \'center\',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: spacing.sm,
     backgroundColor: colors.primary,
     borderRadius: radius.full,
@@ -250,8 +250,8 @@ const styles = StyleSheet.create({
   nextBtnDisabled: { opacity: 0.4 },
   nextLabel: {
     fontSize: 16,
-    fontWeight: \'700\' as const,
-    fontFamily: \'Manrope_700Bold\',
+    fontWeight: '700' as const,
+    fontFamily: 'Manrope_700Bold',
     color: colors.onPrimary,
   },
 });
